@@ -9,8 +9,12 @@ def btnClear():
     global operator
     operator=""
     text_Inpt.set("")
-    
 
+def btnEqual():
+    global operator
+    sum=str(eval(operator))
+    text_Inpt.set(sum)
+    operator=""
 
 calc = Tk()
 calc.title("aDex_Calculator")
@@ -49,13 +53,14 @@ btn2 = Button(calc, padx=16, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'b
 btn3 = Button(calc, padx=16, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'bold'), text='3',
               command=lambda:btnClick(3)).grid(row=4, column=2)
 btnMultiplication = Button(calc, padx=16, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'bold'), text='X',
-              command=lambda:btnClick('X')).grid(row=4, column=3)
+              command=lambda:btnClick('*')).grid(row=4, column=3)
 
 btnDot = Button(calc, padx=16, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'bold'), text='.',
               command=lambda:btnClick('.')).grid(row=5, column=0)
 btn0 = Button(calc, padx=16, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'bold'), text='0',
               command=lambda:btnClick(0)).grid(row=5, column=1)
-btnEqual = Button(calc, padx=16, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'bold'), text='=').grid(row=5, column=2)
+btnEqual = Button(calc, padx=16, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'bold'), text='=',
+              command=btnEqual).grid(row=5, column=2)
 btnDivisio4 = Button(calc, padx=20, bd=8, fg='#fff', bg='#002456', font=('aria', 20, 'bold'), text='/',
               command=lambda:btnClick('/')).grid(row=5,column=3)
 
